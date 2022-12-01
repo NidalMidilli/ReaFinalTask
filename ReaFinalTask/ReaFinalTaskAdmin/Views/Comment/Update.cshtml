@@ -1,0 +1,39 @@
+﻿@using EntityLayer
+@model EntityLayer.Comment
+
+<script src="~/jquery/jquery.min.js"></script>
+<script src="~/jquery-validate/jquery.validate.min.js"></script>
+<script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+<!-- partial -->
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-12 grid-margin">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            COMMENT UPDATE PAGE
+                        </h4>
+                        <form asp-action="Update" asp-controller="Comment" method="post">
+                            <div style="display:none" class="mb-3">
+                                <label for="commentId" class="form-label">Comment Id</label>
+                                <input readonly asp-for="commentId" type="number" class="form-control">                                
+                            </div>
+                            <div class="mb-3">
+                                <label for="commentText" class="form-label">Comment Text</label>
+                                <input asp-for="commentText" type="text" class="form-control">
+                                <span asp-validation-for="commentText"></span>
+                            </div>
+                            <button type="submit" class="btn btn-primary">UPDATE COMMENT</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- content-wrapper ends -->
+    <!-- partial:partials/_footer.html -->
+    <!-- partial -->
+</div>
+<!-- main-panel ends -->

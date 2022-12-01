@@ -1,0 +1,73 @@
+﻿@using EntityLayer
+@model List<EntTask>
+
+<!-- partial -->
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-12 grid-margin">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            TASK LIST PAGE
+                        </h4>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <td></td>
+                                        <th>Owner</th>
+                                        <th>Title</th>
+                                        <th>Description</th>
+                                        <th>Status</th>
+                                        <th>Comment Text</th>
+                                        <th>
+                                            <a href="/Task/Add" class="btn btn-gradient-success btn-rounded btn-fw ml-2">
+                                                <i class="mdi mdi-plus-circle"></i>
+                                            </a>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                @{
+                                    foreach (var item in Model)
+                                    {
+
+
+                                            <tbody>
+                                                <tr>
+                                                <td><img src="~/../../assets/images/faces-clipart/pic-1.png" alt="image" /></td>
+                                                <td>@item.owner</td>
+                                                    <td>
+                                                        @item.title
+                                                    </td>
+                                                    <td>@item.description</td>
+                                                    <td><label class="badge badge-gradient-success">@item.status</label></td>                                              
+                                                        <td>
+                                                        @item.Comment.commentText
+                                                        </td>                                             
+                                                    <td>
+                                                        <a asp-controller="Task" asp-action="Delete" asp-route-id="@item.taskId" width="20" height="20" class="btn btn-gradient-danger btn-rounded btn-fw ml-2">
+                                                        <i class="mdi mdi-close"></i>
+                                                        </a>
+                                                    <a asp-controller="Task" asp-action="Update" asp-route-id="@item.taskId"  width="40" height="40" class="btn btn-gradient-warning btn-rounded btn-fw ml-2">
+                                                        <i class="mdi mdi-grease-pencil"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                    }
+                                }
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- content-wrapper ends -->
+    <!-- partial:partials/_footer.html -->
+    <!-- partial -->
+</div>
+<!-- main-panel ends -->
+

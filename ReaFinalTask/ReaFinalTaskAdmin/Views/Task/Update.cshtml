@@ -1,0 +1,57 @@
+﻿@using EntityLayer
+@model EntityLayer.EntTask
+
+<script src="~/jquery/jquery.min.js"></script>
+<script src="~/jquery-validate/jquery.validate.min.js"></script>
+<script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+<!-- partial -->
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-12 grid-margin">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            TASK UPDATE PAGE
+                        </h4>
+                        <form asp-action="Update" asp-controller="Task" method="post">
+                            <div style="display:none" class="mb-3">
+                                <label for="taskId" class="form-label">TASK ID</label>
+                                <input readonly asp-for="taskId" type="number" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="owner" class="form-label">Owner</label>
+                                <input asp-for="owner" type="text" class="form-control">                               
+                            </div>
+                            <div class="mb-3">
+                                <label for="title" class="form-label">Title</label>
+                                <input asp-for="title" type="text" class="form-control">
+                                <span asp-validation-for="title"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label for="description" class="form-label">Description</label>
+                                <input type="text" class="form-control" asp-for="description">
+                                <span asp-validation-for="description"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label for="status" class="form-label">Status</label>
+                                <input type="text" class="form-control" asp-for="status">
+                            </div>
+                            <div class="mb-3">
+                                <label for="commentId" class="form-label">Comment ID</label>
+                                <input type="number" class="form-control" asp-for="commentId">
+                            </div>
+                       
+                            <button type="submit" class="btn btn-primary">UPDATE TASK</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- content-wrapper ends -->
+    <!-- partial:partials/_footer.html -->
+    <!-- partial -->
+</div>
+<!-- main-panel ends -->

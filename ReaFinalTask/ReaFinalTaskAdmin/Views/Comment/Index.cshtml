@@ -1,0 +1,61 @@
+﻿@using EntityLayer
+@model List<Comment>
+
+<!-- partial -->
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-12 grid-margin">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            COMMENT LIST PAGE
+                        </h4>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                      
+                                        <th>Comment ID</th>
+                                        <th>Comment Text</th>
+                                        <th>
+                                            <a href="/Comment/Add" class="btn btn-gradient-success btn-rounded btn-fw ml-2">
+                                                <i class="mdi mdi-plus-circle"></i>
+                                            </a>
+
+                                        </th>
+                                    </tr>
+                                </thead>
+                                @{
+                                    foreach (var item in Model)
+                                    {
+
+
+                                        <tbody>
+                                            <tr>                                        
+                                                <td>@item.commentId</td>
+                                                <td>@item.commentText</td>
+                                                <td>
+                                                     <a asp-controller="Comment" asp-action="Delete" asp-route-id="@item.commentId"  class="btn btn-gradient-danger btn-rounded btn-fw ml-2">
+                                                        <i class="mdi mdi-close"></i>
+                                                        </a>
+                                                    <a asp-controller="Comment" asp-action="Update" asp-route-id="@item.commentId"  class="btn btn-gradient-warning btn-rounded btn-fw ml-2">
+                                                        <i class="mdi mdi-grease-pencil"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    }
+                                }
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- content-wrapper ends -->
+    <!-- partial:partials/_footer.html -->
+    <!-- partial -->
+</div>
+<!-- main-panel ends -->
